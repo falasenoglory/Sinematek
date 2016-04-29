@@ -14,10 +14,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.bumptech.glide.Glide;
 import com.rngstudios.sinematek.R;
 import com.rngstudios.sinematek.ui.model.MovieItemViewModel;
 import java.util.ArrayList;
 import java.util.List;
+import timber.log.Timber;
 
 /**
  * TODO: Add class header comment!
@@ -49,9 +51,12 @@ public class MovieListingAdapter extends BaseAdapter {
       holder = ((ViewHolder) convertView.getTag());
     }
 
-    // Update item
     MovieItemViewModel item = getItem(position);
     holder.title.setText(item.title);
+    Timber.i("path=%s", item.imagePath);
+    Glide.with(context).load(item.imagePath)
+        .placeholder(R.mipmap.ic_launcher)
+        .into(holder.thumbnail);
 
     return convertView;
   }

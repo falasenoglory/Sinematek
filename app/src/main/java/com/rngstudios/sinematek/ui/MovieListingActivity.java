@@ -23,10 +23,15 @@ public class MovieListingActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
 
-    items.add(new MovieItemViewModel(1, "Breaking bad 1", "path"));
-    items.add(new MovieItemViewModel(1, "Breaking bad 2", "path"));
-    items.add(new MovieItemViewModel(1, "Breaking bad 3", "path"));
-    items.add(new MovieItemViewModel(1, "Breaking bad 4", "path"));
+    String baseImagePath = "http://image.tmdb.org/t/p/original";
+    items.add(new MovieItemViewModel(1, "Fight Club",
+        baseImagePath + "/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg"));
+    items.add(new MovieItemViewModel(1, "Batman v Superman: Dawn of Justice",
+        baseImagePath + "/6bCplVkhowCjTHXWv49UjRPn0eK.jpg"));
+    items.add(new MovieItemViewModel(1, "Deadpool",
+        baseImagePath + "/k1QUCjNAkfRpWfm1dVJGUmVHzGv.jpg"));
+    items.add(new MovieItemViewModel(1, "Star War: The Force Awakens",
+        baseImagePath + "/weUSwMdQIa3NaXVzwUoIIcAi85d.jpg"));
 
     adapter = new MovieListingAdapter(this, items);
     listView.setAdapter(adapter);
