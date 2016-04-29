@@ -5,6 +5,8 @@
  */
 package com.rngstudios.sinematek.ui.model;
 
+import com.google.common.base.MoreObjects;
+
 /**
  * TODO: Add class header comment!
  */
@@ -17,5 +19,13 @@ public class MovieItemViewModel {
     this.title = title;
     this.imagePath = imagePath;
     this.id = id;
+  }
+
+  @Override public String toString() {
+    return MoreObjects.toStringHelper(this)
+        .add("id", id)
+        .add("title", title)
+        .add("imagePath", imagePath)
+        .toString();
   }
 }
